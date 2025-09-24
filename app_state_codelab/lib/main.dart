@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class CounterModel extends ChangeNotifier {
   int _counter = 0;
@@ -20,7 +20,7 @@ class CounterModel extends ChangeNotifier {
 }
 
 class MyApp extends StatelessWidget {
-  final CounterModel model = CounterModel();
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
       create: (context) => CounterModel(),
       child: MaterialApp(
         home: Scaffold(
-          appBar: AppBar(title: Text('Scoped Model Example')),
-          body: CounterWidget(),
+          appBar: AppBar(title: const Text('Scoped Model Example')),
+          body: const CounterWidget(),
         ),
       ),
     );
@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CounterWidget extends StatelessWidget {
+  const CounterWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Consumer<CounterModel>(
@@ -45,18 +46,18 @@ class CounterWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Counter Value: ${model.counter}'),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 model.increment();
               },
-              child: Text('Increment'),
+              child: const Text('Increment'),
             ),
             ElevatedButton(
               onPressed: () {
                 model.decrement();
               },
-              child: Text('Decrement'),
+              child: const Text('Decrement'),
             ),
           ],
         ),
