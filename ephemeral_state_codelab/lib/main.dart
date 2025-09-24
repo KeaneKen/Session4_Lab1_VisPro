@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyEphemeralApp());
+void main() => runApp(const MyEphemeralApp());
 
 class MyEphemeralApp extends StatelessWidget {
   const MyEphemeralApp({super.key});
@@ -12,7 +12,7 @@ class MyEphemeralApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Ephemeral State Example'),
         ),
-        body: CounterWidget(),
+        body: const CounterWidget(),
       ),
     );
   }
@@ -35,7 +35,7 @@ class _CounterWidgetState extends State<CounterWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text('Counter Value: $_counter'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
               setState(() {
